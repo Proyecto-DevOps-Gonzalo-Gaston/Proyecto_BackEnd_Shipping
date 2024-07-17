@@ -73,7 +73,7 @@ jobs:
       - name: Build Docker image
         run: |
           mvn clean package -DskipTests
-          docker build --build-arg JAR_FILE=target/shipping-service-example-0.0.1-SNAPSHOT.jar -t shipping-service-example:prod .
+          docker build --build-arg JAR_FILE=target/sipping-service-example-0.0.1-SNAPSHOT.jar -t sipping-service-example:prod .
       
       - name: Log in to AWS ECR
         run: |
@@ -81,6 +81,6 @@ jobs:
 
       - name: Tag and Push Docker image to AWS ECR
         run: |
-          docker tag shipping-service-example:prod ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/proyecto-devops-gg-shipping:prod
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/proyecto-devops-gg-shipping:prod
+          docker tag sipping-service-example:prod ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/proyecto-devops-gg-sipping:prod
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/proyecto-devops-gg-sipping:prod
 
